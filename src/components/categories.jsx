@@ -1,6 +1,8 @@
+import './categories.scss';
+
 const Categories = () => (
   <>
-    <h1>Under construction⚠️</h1>
+    <button type="submit" className="btn mt-5 mb-5 btn-primary ms-5">Check status</button>
   </>
 );
 

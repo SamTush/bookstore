@@ -1,15 +1,19 @@
 import './books.scss';
 import BookList from './booklist';
+import AddBook from './addBook';
 
 const Books = () => (
   <>
     <div className="container">
       <div className="row">
-        <div className="col col-12 book-details">
+        <div className="col col-12 book-details pb-4">
           <BookList />
         </div>
+        <div className="col col-12 line-div">
+          <hr className="hr" />
+        </div>
         <div className="col col-12 add-books">
-          <h1>ADD NEW BOOK</h1>
+          <AddBook />
         </div>
       </div>
     </div>
