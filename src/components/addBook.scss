@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;600;700&display=swap');
+
+$primary-color: #266dd3;
+$secondary-color: #0a0b09;
+$tetiary-color: #eff1ed;
+$tetiary-mid: #919191;
+$tetiary-variant: #fff;
+
+.add-book {
+  h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: $tetiary-mid;
+  }
+
+  form {
+    .btn {
+      width: 100%;
+    }
+  }
+}

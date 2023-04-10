@@ -1,0 +1,88 @@
+$primary-color: #266dd3;
+$primary-light: #2f81f5;
+$secondary-color: #0a0b09;
+$tetiary-color: #eff1ed;
+$tetiary-mid: #dedcdc;
+$tetiary-variant: #fff;
+
+.booklist {
+  background-color: $tetiary-variant;
+  padding: 20px 0;
+
+  .width {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .top {
+    margin-top: -5px;
+  }
+
+  .top-second {
+    margin-top: -8px;
+    color: $primary-light;
+  }
+
+  .top-complete {
+    margin-top: -17px;
+  }
+
+  .percent {
+    font-size: 34px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    color: $primary-light;
+  }
+
+  .vertical {
+    border-left: 2px solid $tetiary-mid;
+    height: 27px;
+  }
+
+  .vertical-two {
+    border-left: 2px solid $tetiary-mid;
+    height: 70px;
+    margin-left: 40px;
+  }
+
+  .progress-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .progress-bar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background:
+      radial-gradient(closest-side, white 88%, transparent 80% 100%),
+      conic-gradient($primary-color 64%, $tetiary-mid 0);
+  }
+
+  .progress {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+
+  .button-div {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .btn {
+    background-color: $primary-color;
+    color: $tetiary-color;
+    border-radius: 3px;
+  }
+}
