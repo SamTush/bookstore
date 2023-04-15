@@ -8,9 +8,9 @@ div#root {
   background-color: $tetiary-color;
 
   .main-div {
-    width: 85%;
-    margin: 80px auto;
-    background-color: $tetiary-variant;
+    width: 100%;
+    margin: 0 auto;
+    background-color: $tetiary-color;
     border-radius: 6px;
     box-shadow: 0 0 2px $tetiary-mid;
   }

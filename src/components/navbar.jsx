@@ -5,7 +5,7 @@ import { FaUserAlt } from 'react-icons/fa';
 const Navbar = () => (
   (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar  navbar-expand-lg bg-body-tertiary">
         <div className="container">
           <Link className="navbar-brand" to="/">Bookstore CMS</Link>
           <div className="navbar-collapse" id="navbarNav">

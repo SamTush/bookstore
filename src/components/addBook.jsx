@@ -28,13 +28,13 @@ const AddBook = () => {
     <div className="add-book">
       <h4>ADD NEW BOOK</h4>
       <form className="row g-3 mt-2" onSubmit={handleFormSubmit}>
-        <div className="col-4">
+        <div className="col-6">
           <input type="text" className="form-control" id="book-title" name="bookTitle" placeholder="Book Title" required />
         </div>
-        <div className="col-3">
-          <input type="text" className="form-control" id="author" name="author" placeholder="Author" required />
+        <div className="col-4" hidden>
+          <input type="text" className="form-control" id="author" name="author" placeholder="Author" />
         </div>
-        <div className="col-3">
+        <div className="col-4">
           <select className="form-control" name="category">
             <option value="Action">Action</option>
             <option value="Science Fiction">Science Fiction</option>

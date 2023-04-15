@@ -26,7 +26,7 @@ const BookList = () => {
                 <li>
                   &emsp;
                   <button
-                    className="btn btn-outline-light"
+                    className="btn btn-outline-light button"
                     type="button"
                     onClick={() => handleRemoveBook(book.id)}
                   >
