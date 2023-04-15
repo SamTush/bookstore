@@ -1,19 +1,20 @@
 import './booklist.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
+import { fetchBooks, removeBook } from '../redux/books/booksSlice';
 
 const BookList = () => {
   const books = useSelector((state) => state.books.books);
   const dispatch = useDispatch();
 
-  const handleRemoveBook = (itemId) => {
-    dispatch(removeBook(itemId));
+  const handleRemoveBook = (id) => {
+    dispatch(removeBook(id));
+    dispatch(fetchBooks());
   };
 
   return (
     <>
       {books.map((book) => (
-        <div key={book.item_id} className="container booklist mt-3">
+        <div key={book.id} className="container booklist mt-3">
           <div className="row width">
             <div className="col col-6">
               <h6>{book.category}</h6>
@@ -24,7 +25,11 @@ const BookList = () => {
                 <div className="vertical" />
                 <li>
                   &emsp;
-                  <button className="btn btn-outline-light" type="button" onClick={() => handleRemoveBook(book.item_id)}>
+                  <button
+                    className="btn btn-outline-light"
+                    type="button"
+                    onClick={() => handleRemoveBook(book.id)}
+                  >
                     Remove
                   </button>
                   &emsp;
@@ -43,7 +48,7 @@ const BookList = () => {
               <div>
                 <p className="percent ms-2">
                   {book.percentage}
-                  %
+                  65%
                 </p>
                 <p className="top-complete ms-2">Completed</p>
               </div>
