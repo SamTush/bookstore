@@ -1,14 +1,10 @@
 import './booklist.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
+import { fetchBooks, removeBook } from '../redux/books/booksSlice';
 
 const BookList = () => {
   const books = useSelector((state) => state.books.books);
   const dispatch = useDispatch();
-
-  const handleRemoveBook = (itemId) => {
-    dispatch(removeBook(itemId));
-  };
 
   return (
     <>
@@ -24,7 +20,14 @@ const BookList = () => {
                 <div className="vertical" />
                 <li>
                   &emsp;
-                  <button className="btn btn-outline-light" type="button" onClick={() => handleRemoveBook(book.item_id)}>
+                  <button
+                    className="btn btn-outline-light"
+                    type="button"
+                    onClick={() => {
+                      dispatch(removeBook(book.Id));
+                      dispatch(fetchBooks());
+                    }}
+                  >
                     Remove
                   </button>
                   &emsp;

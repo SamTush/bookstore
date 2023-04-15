@@ -6,6 +6,9 @@ import store from './redux/store';
 import './index.scss';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.css';
+import { fetchBooks } from './redux/books/booksSlice';
+
+store.dispatch(fetchBooks());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
