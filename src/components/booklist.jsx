@@ -6,10 +6,19 @@ const BookList = () => {
   const books = useSelector((state) => state.books.books);
   const dispatch = useDispatch();
 
+  const handleRemoveBook = async (id) => {
+    try {
+      await dispatch(removeBook(id));
+      await dispatch(fetchBooks());
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       {books.map((book) => (
-        <div key={book.item_id} className="container booklist mt-3">
+        <div key={book.id} className="container booklist mt-3">
           <div className="row width">
             <div className="col col-6">
               <h6>{book.category}</h6>
@@ -23,10 +32,7 @@ const BookList = () => {
                   <button
                     className="btn btn-outline-light"
                     type="button"
-                    onClick={() => {
-                      dispatch(removeBook(book.Id));
-                      dispatch(fetchBooks());
-                    }}
+                    onClick={() => handleRemoveBook(book.id)}
                   >
                     Remove
                   </button>
@@ -46,7 +52,7 @@ const BookList = () => {
               <div>
                 <p className="percent ms-2">
                   {book.percentage}
-                  %
+                  65%
                 </p>
                 <p className="top-complete ms-2">Completed</p>
               </div>

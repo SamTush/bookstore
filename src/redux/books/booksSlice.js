@@ -1,14 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const APIurl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/UyJ1zfyvbSSugnL7GVUQ/books';
+const APIurl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/UyJ1zfyvbSSugnL7GVUQ/books/';
 
-export const fetchBooks = createAsyncThunk('books.fetchBook', async () => {
+export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
   const response = await axios.get(APIurl);
   const bookList = Object.entries(response.data).map(([key, value]) => {
     const { title, category, author } = value[0];
     return {
-      Id: key,
+      id: key,
       title,
       author,
       category,
@@ -47,13 +47,16 @@ export const booksSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder.addCase(fetchBooks.fulfilled, (state, { payload }) => ({
-      ...state, books: [...payload],
+      ...state,
+      books: [...payload],
     }));
     builder.addCase(addBook.fulfilled, (state, { payload }) => ({
-      ...state, books: [...state.books, payload],
+      ...state,
+      books: [...state.books, payload],
     }));
     builder.addCase(removeBook.fulfilled, (state, { payload }) => ({
-      ...state, books: state.books.filter((book) => book.Id !== payload),
+      ...state,
+      books: state.books.filter((book) => book.id !== payload),
     }));
   },
 });

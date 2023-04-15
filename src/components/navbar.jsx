@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './navbar.scss';
+import { FaBeer } from 'react-icons/fa';
 
 const Navbar = () => (
   (
@@ -17,6 +18,7 @@ const Navbar = () => (
               </li>
             </ul>
           </div>
+          <FaBeer />
         </div>
       </nav>
     </>
