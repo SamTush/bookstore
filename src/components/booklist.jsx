@@ -6,13 +6,9 @@ const BookList = () => {
   const books = useSelector((state) => state.books.books);
   const dispatch = useDispatch();
 
-  const handleRemoveBook = async (id) => {
-    try {
-      await dispatch(removeBook(id));
-      await dispatch(fetchBooks());
-    } catch (error) {
-      console.log(error);
-    }
+  const handleRemoveBook = (id) => {
+    dispatch(removeBook(id));
+    dispatch(fetchBooks());
   };
 
   return (

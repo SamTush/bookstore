@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { addBook, fetchBooks } from '../redux/books/booksSlice';
@@ -6,26 +5,23 @@ import './addBook.scss';
 
 const AddBook = () => {
   const dispatch = useDispatch();
-  const [category, setCategory] = useState('Action');
 
   const handleFormSubmit = async (event) => {
+    dispatch(fetchBooks());
     event.preventDefault();
     const title = event.target.bookTitle.value;
     const author = event.target.author.value;
+    const category = event.target[2].options[event.target[2].selectedIndex].text;
     const itemId = nanoid();
 
-    await dispatch(addBook({
+    dispatch(addBook({
       title,
       author,
       item_id: itemId,
       category,
-    })).unwrap();
-    dispatch(fetchBooks());
+    }));
     event.target.reset();
-  };
-
-  const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
+    console.log(category);
   };
 
   return (
@@ -33,13 +29,13 @@ const AddBook = () => {
       <h4>ADD NEW BOOK</h4>
       <form className="row g-3 mt-2" onSubmit={handleFormSubmit}>
         <div className="col-4">
-          <input type="text" className="form-control" id="book-title" name="bookTitle" placeholder="Book Title" />
+          <input type="text" className="form-control" id="book-title" name="bookTitle" placeholder="Book Title" required />
         </div>
         <div className="col-3">
-          <input type="text" className="form-control" id="author" name="author" placeholder="Author" />
+          <input type="text" className="form-control" id="author" name="author" placeholder="Author" required />
         </div>
         <div className="col-3">
-          <select className="form-control" onChange={handleCategoryChange} value={category}>
+          <select className="form-control" name="category">
             <option value="Action">Action</option>
             <option value="Science Fiction">Science Fiction</option>
             <option value="Economy">Economy</option>

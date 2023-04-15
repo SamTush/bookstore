@@ -20,8 +20,8 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
 export const addBook = createAsyncThunk('book/addBook', async (book) => {
   try {
     await axios.post(APIurl, book);
-    const response = await fetchBooks();
-    return response.payload;
+    fetchBooks();
+    return book;
   } catch {
     return 'Unable to add a book';
   }
@@ -50,10 +50,11 @@ export const booksSlice = createSlice({
       ...state,
       books: [...payload],
     }));
-    builder.addCase(addBook.fulfilled, (state, { payload }) => ({
-      ...state,
-      books: [...state.books, payload],
-    }));
+    builder.addCase(addBook.fulfilled, (state, { payload }) => {
+      const newstate = { ...payload };
+      return (
+        { ...state, books: [...state.books, newstate] });
+    });
     builder.addCase(removeBook.fulfilled, (state, { payload }) => ({
       ...state,
       books: state.books.filter((book) => book.id !== payload),
