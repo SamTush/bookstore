@@ -85,4 +85,9 @@ $tetiary-variant: #fff;
     color: $tetiary-color;
     border-radius: 3px;
   }
+
+  .button {
+    background-color: $tetiary-variant;
+    color: $primary-light;
+  }
 }
